@@ -1,0 +1,32 @@
+frameworkVersion: '2'
+useDotenv: true
+
+service: your-app
+
+custom:
+  webpack:
+    webpackConfig: './webpack.config.js'
+    includeModules: true
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  
+provider:
+  name: aws
+  stage: ${opt:stage, 'dev'}
+  apiName: ${self:service}
+  runtime: nodejs12.x
+  region: us-west-2
+  lambdaHashingVersion: 20201221
+  logRetentionInDays: 60
+  memorySize: 128
+  tags:
+    environment: ${self:provider.stage}
+    origin: 'learning-fabric'
+    project: ${self:service}
+  deploymentPrefix: "serverless-state"
+  environment:
+    AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+
+functions: ${file(serverless.functions.yaml):functions}

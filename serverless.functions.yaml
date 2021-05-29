@@ -1,0 +1,7 @@
+functions:
+  helloWorld:
+    handler: src/handlers/hello.time
+    events:
+      - http:
+          method: get
+          path: /
