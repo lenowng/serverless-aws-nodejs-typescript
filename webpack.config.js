@@ -52,8 +52,7 @@ module.exports = {
   plugins: [
     new ForkTsCheckerWebpackPlugin({
       eslint: {
-        // enabled: !slsw.lib.webpack.isLocal,
-        enabled: true,
+        enabled: !slsw.lib.webpack.isLocal,
         files: './src/**/*.{ts,tsx}' // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
       }
     }),
