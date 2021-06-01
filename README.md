@@ -1,4 +1,4 @@
-# Serverless-AWS NodeJS+Typescript 
+# Serverless AWS NodeJS+Typescript 
 This template utilize YAML file as Serverless Framework config.\
 For Typescript config, (delete serverless*.yaml after running the command) run:\
 `npx serverless-yaml2ts`
